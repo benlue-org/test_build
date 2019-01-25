@@ -4,10 +4,10 @@ pipeline {
         MIRROR_PATH             = '/mnt/e/los-mirror/LineageOS/android.git'
         BUILD_PATH              = '/home/lineageos/android/lineage'
         DEVICE_PATH             = '/home/lineageos/android/lineage/device'        
-        /*
+        
 	BRANCH                  = 'lineage-15.1'
         DEVICE                  = 'jfltexx'
-        */
+        
 	USE_CCACHE              =  '1'
         CCACHE_COMPRESS         =  '1'
         ANDROID_JACK_VM_ARGS    =  '-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G'
