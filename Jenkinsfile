@@ -6,7 +6,7 @@ pipeline {
         DEVICE_PATH             = '/home/lineageos/android/lineage/device'        
         
 	BRANCH                  = '${params.Branch}'
-        DEVICE                  = '${params.Device}'
+        DEVICE                  = '${params.Device'
         
 	USE_CCACHE              =  '1'
         CCACHE_COMPRESS         =  '1'
@@ -22,7 +22,7 @@ pipeline {
                     sh 'mkdir -p ~/bin'
                     sh 'curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo'
                     sh '''#!/bin/bash\nset -x\nsource ~/.profile\nrepo init -u ${MIRROR_PATH} -b ${BRANCH}'''
-                    sh 'repo init -u ${MIRROR_PATH} -b ${BRANCH}'
+                    sh 'repo init -u ${MIRROR_PATH} -b ${params.Branch}'
                 }
             }
         }
