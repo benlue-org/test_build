@@ -5,8 +5,8 @@ pipeline {
         BUILD_PATH              = '/home/lineageos/android/lineage'
         DEVICE_PATH             = '/home/lineageos/android/lineage/device'        
         
-	BRANCH                  = 'lineage-15.1'
-        DEVICE                  = 'jfltexx'
+	BRANCH                  = '${params.Branch}'
+        DEVICE                  = '${params.Device}'
         
 	USE_CCACHE              =  '1'
         CCACHE_COMPRESS         =  '1'
