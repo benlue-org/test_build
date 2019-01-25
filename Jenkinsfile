@@ -4,8 +4,8 @@ pipeline {
         MIRROR_PATH             = '/mnt/e/los-mirror/LineageOS/android.git'
         BUILD_PATH              = '/home/lineageos/android/lineage'
         DEVICE_PATH             = '/home/lineageos/android/lineage/device'        
-        BRANCH                  = 'lineage-15.1'
-        DEVICE                  = 'jfltexx'
+        BRANCH                  = '$BRANCH'
+        DEVICE                  = '$DEVICE'
         USE_CCACHE              =  '1'
         CCACHE_COMPRESS         =  '1'
         ANDROID_JACK_VM_ARGS    =  '-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G'
@@ -28,11 +28,11 @@ pipeline {
             steps {
                 echo 'Code syncing'
                 dir("${BUILD_PATH}") {
-                    //sh '''#!/bin/bash\nset -x\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
+                    sh '''#!/bin/bash\nset -x\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
                 }
             }
         }
-        stage('jfltexx Source') {
+        stage('$DEVICE Source') {
             steps {
                 echo 'jfltexx Source'
                 dir("${DEVICE_PATH}") {
