@@ -16,6 +16,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 echo 'Preparation'
+		echo "Will deploy to ${DEPLOY_ENV}"
                 sh 'mkdir -p ${BUILD_PATH}'
                 dir("${BUILD_PATH}") {
                     sh("pwd")
