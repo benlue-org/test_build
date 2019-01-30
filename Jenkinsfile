@@ -40,51 +40,6 @@ pipeline {
                 }
             }
         }
-        stage('Jfltexx Source') {
-            steps {
-                echo 'jfltexx Source'
-                dir("${DEVICE_PATH}") {
-                    checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					extensions: [[$class: 'RelativeTargetDirectory', 
-                        relativeTargetDir: 'qcom/common']],
-					userRemoteConfigs: [[url: 'https://github.com/LineageOS/android_device_qcom_common.git']]
-					])
-					/*
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					userRemoteConfigs: [[url: 'https://github.com/LineageOS/android_device_samsung_qcom-common.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					userRemoteConfigs: [[url: 'https://github.com/LineageOS/android_hardware_samsung.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					userRemoteConfigs: [[url: 'https://github.com/LineageOS/android_packages_resources_devicesettings.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					userRemoteConfigs: [[url: 'https://github.com/los-legacy/android_device_samsung_jf-common.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					userRemoteConfigs: [[url: 'https://github.com/los-legacy/android_device_samsung_jfltexx.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					extensions: [[$class: 'CloneOption', timeout: 120]],
-					userRemoteConfigs: [[url: 'https://github.com/los-legacy/android_kernel_samsung_jf.git']]
-					])
-					checkout([$class: 'GitSCM',
-					branches: [[name: 'origin/lineage-15.1']],
-					extensions: [[$class: 'CloneOption', timeout: 120]],
-					userRemoteConfigs: [[url: 'https://github.com/los-legacy/proprietary_vendor_samsung_jf.git']]
-					])
-					*/
-                }    
-            }
-        }
         stage('Build process') {
             steps {
                 echo 'Build process'
