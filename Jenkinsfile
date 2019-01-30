@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+  agent {
+    node {
+      label 'master'
+      customWorkspace '/mnt/los-build'
+    }
+  }
     environment {
         MIRROR_PATH             = '/mnt/los-mirror/LineageOS/android.git'
         BUILD_PATH              = '/mnt/los-build'
