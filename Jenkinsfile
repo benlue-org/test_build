@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Preparation'
 		//echo "Will deploy to ${DEPLOY_ENV}"
-                sh 'mkdir -p ${BUILD_PATH}'
+                //sh 'mkdir -p ${BUILD_PATH}'
                 dir("${BUILD_PATH}") {
                     sh("pwd")
                     sh 'mkdir -p ~/bin'
