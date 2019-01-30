@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        MIRROR_PATH             = '/mnt/e/los-mirror/LineageOS/android.git'
-        BUILD_PATH              = '/home/lineageos/android/lineage'
-        DEVICE_PATH             = '/home/lineageos/android/lineage/device'        
+        MIRROR_PATH             = '/mnt/los-mirror/LineageOS/android.git'
+        BUILD_PATH              = '/mnt/los-build'
+        DEVICE_PATH             = '/mnt/los-build/device'        
         
 	BRANCH                  = 'lineage-15.1'
         DEVICE                  = 'jfltexx'
