@@ -44,7 +44,7 @@ pipeline {
             steps {
                 echo 'Build process'
                 dir("${BUILD_PATH}") {
-                    sh '''#!/bin/bash\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nprintenv'''
+                    sh '''#!/bin/bash\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nbrunch "${DEVICE}"'''
                 }    
             }
         }
