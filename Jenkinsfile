@@ -9,7 +9,7 @@ pipeline {
         MIRROR_PATH             = '/mnt/los-mirror/LineageOS/android.git'
         BUILD_PATH              = '/mnt/los-build/lineage-16.0'
         
-	BRANCH                  = 'lineage-15.1'
+	BRANCH                  = 'lineage-16.0'
         DEVICE                  = 'jfltexx'
         
 	USE_CCACHE              =  '1'
