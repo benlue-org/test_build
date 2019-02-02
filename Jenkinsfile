@@ -28,7 +28,6 @@ pipeline {
                     sh 'mkdir -p ~/bin'
                     sh 'curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo'
                     sh '''#!/bin/bash\nset -x\nsource ~/.profile\nrepo init -u ${MIRROR_PATH} -b ${BRANCH}'''
-                    sh 'repo init -u ${MIRROR_PATH} -b "${BRANCH}"'
                 }
             }
         }
