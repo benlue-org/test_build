@@ -2,13 +2,12 @@ pipeline {
   agent {
     node {
       label 'builder'
-      customWorkspace '/mnt/los-build/lineage-15.1'
+      customWorkspace '/mnt/los-build/lineage-16.0'
     }
   }
     environment {
         MIRROR_PATH             = '/mnt/los-mirror/LineageOS/android.git'
-        BUILD_PATH              = '/mnt/los-build/lineage-15.1'
-        DEVICE_PATH             = '/mnt/los-build/device'        
+        BUILD_PATH              = '/mnt/los-build/lineage-16.0'
         
 	BRANCH                  = 'lineage-15.1'
         DEVICE                  = 'jfltexx'
