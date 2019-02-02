@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Code syncing'
                 dir("${BUILD_PATH}") {
-                    sh '''#!/bin/bash\nset +x\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
+                    sh '''#!/bin/bash\nset +x\nsource ~/.profile\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
                 }
             }
         }
