@@ -34,9 +34,11 @@ pipeline {
             steps {
                 echo 'Code syncing'
                 dir("${BUILD_PATH}") {
-		    sh '''rm -rf .repo/local_manifests/*'''
-		    sh '''wget https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-16.0/jfltexx.xml -O .repo/local_manifests/jfltexx.xml'''
-                    sh '''#!/bin/bash\nset +x\nsource ~/.profile\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
+		    sh '''#!/bin/bash\nset -x\nmake clean'''
+		    sh '''#!/bin/bash\nset -x\nrm -rf .repo/local_manifests/*'''
+		    sh '''#!/bin/bash\nset -x\nwget https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-16.0/jfltexx.xml -O .repo/local_manifests/jfltexx.xml'''
+                    sh '''#!/bin/bash\nset -x\nsource ~/.profile\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
+  		    sh '''#!/bin/bash\nset -x\nsource device/samsung/jf-common/patches/apply.sh'''
                 }
             }
         }
@@ -44,7 +46,8 @@ pipeline {
             steps {
                 echo 'Build process'
                 dir("${BUILD_PATH}") {
-                    sh '''#!/bin/bash\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nbrunch "${DEVICE}"'''
+                    sh '''#!/bin/bash\nset -x\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nbrunch "${DEVICE}"'''
+		    sh '''#!/bin/bash\nset -x\nsource device/samsung/jf-common/patches/revert.sh'''
                 }    
             }
         }
