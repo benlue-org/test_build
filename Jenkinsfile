@@ -34,6 +34,8 @@ pipeline {
             steps {
                 echo 'Code syncing'
                 dir("${BUILD_PATH}") {
+		    sh '''rm -rf .repo/local_manifests/*'''
+		    sh '''wget https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-16.0/jfltexx.xml -O .repo/local_manifests/jfltexx.xml'''
                     sh '''#!/bin/bash\nset +x\nsource ~/.profile\nrepo sync -f --force-sync --force-broken --no-clone-bundle --no-tags -j$(nproc --all)'''
                 }
             }
