@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo 'Build process'
                 dir("${BUILD_PATH}") {
-                    sh '''#!/bin/bash\nsource ~/.profile\nsource build/envsetup.sh\nexport USE_CCACHE=1\nprebuilts/misc/linux-x86/ccache/ccache -M 50G\nbrunch "${DEVICE}"'''
+                    sh '''#!/bin/bash\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nbrunch "${DEVICE}"'''
                 }    
             }
         }
