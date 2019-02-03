@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo 'Build process'
                 dir("${BUILD_PATH}") {
-                    sh '''#!/bin/bash\nset -x\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nbrunch "${DEVICE}"'''
+                    sh '''#!/bin/bash\nset -x\nsource build/envsetup.sh\nbreakfast "${DEVICE}"\nexport USE_CCACHE=1\nccache -M 50G\nexport CCACHE_COMPRESS=1\nexport ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"\nbrunch "${DEVICE}"'''
 		    sh '''#!/bin/bash\nset -x\nsource device/samsung/jf-common/patches/revert.sh'''
                 }    
             }
